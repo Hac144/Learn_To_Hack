@@ -1,0 +1,7 @@
+Link: https://drive.google.com/file/d/19CIq0NCLWU2kcJhMZr4cgurBoYuV2kP_/view?usp=sharing
+# Command: strings
+
+## Description
+  The `strings` command searches for and prints sequences of printable characters in a file. 
+  It is primarily used to look inside "binary" files (like images, executables, or compressed files) 
+  where a normal text editor like `cat` or `nano` would just show gibberish.
