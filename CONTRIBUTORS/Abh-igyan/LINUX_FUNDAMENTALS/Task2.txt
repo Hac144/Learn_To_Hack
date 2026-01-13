@@ -1,0 +1,13 @@
+screenshot: https://drive.google.com/file/d/1fQHaUm-F2pnMczwHnpEqZSSZt2eYLRG6/view?usp=sharing
+
+
+mkdir <dir_name>          # Creates a new directory at the specified path.
+cd <dir_name>             # Used to change the current working directory in the Linux shell.
+mv <old_name> <new_name>  # Renames a file/directory or moves it to a different location.
+touch <file_name>         # Creates an empty file or updates the access/modification time of an existing one.
+rm -r <dir_name>          # Removes files or directories recursively.
+rmdir <dir_name>          # Removes a directory only if it is completely empty.
+adduser <username>        # Interactively creates a new user, their home directory, and sets their password.
+groups <username>         # Displays the names of all groups that a specific user belongs to.
+usermod -aG <group> <user># Appends a user to a specific group (e.g., adding a user to 'sudo').
+passwd <username>         # Sets, changes, or resets the password for a specific user.
