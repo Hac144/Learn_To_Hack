@@ -1,0 +1,49 @@
+# Command: chmod (Change Mode)
+
+## Description
+The `chmod` command is used to change the access permissions (modes) of files and directories. In Linux, every file has three types of permissions: Read (r), Write (w), and Execute (x), assigned to three different entities: Owner (u), Group (g), and Others (o).
+
+In the world of CTFs and Cybersecurity, `chmod` is essential for:
+1. Making exploit scripts executable.
+2. Securing sensitive files (like SSH private keys).
+3. Exploiting SUID/SGID bits for privilege escalation.
+
+
+
+---
+
+## Essential Flags
+
+### 1. -R, --recursive
+Changes permissions for directories and their contents recursively.
+* **CTF Use:** If you upload a directory of tools (like LinPEAS or specialized scripts), use `-R` to make the entire toolkit executable at once.
+* **Example:** `chmod -R +x ./scripts/`
+
+### 2. -v, --verbose
+Output a diagnostic for every file processed.
+* **CTF Use:** Provides a clear log of exactly which files were modified, which is helpful when writing automated exploitation scripts.
+
+### 3. -f, --silent, --quiet
+Suppresses most error messages. It won't warn you if it fails to change permissions on files you don't have access to.
+* **CTF Use:** Keeps your terminal clean when running bulk commands on a target system.
+
+### 4. -c, --changes
+Like verbose, but reports only when a change is actually made. If the file already has the desired permission, it remains silent.
+
+### 5. --reference=RFILE
+Uses the mode of a reference file (`RFILE`) instead of a specified numeric or symbolic mode.
+* **CTF Use (Stealth):** If you place a backdoor on a system, you can use a legitimate system file as a reference so your malicious file blends in with the rest of the binaries in `/usr/bin/`.
+* **Example:** `chmod --reference=/usr/bin/ls my_backdoor`
+
+---
+
+## The "Cybersec" Special: SUID and Numeric Modes
+
+### Numeric (Octal) Notation
+* `4` = Read
+* `2` = Write
+* `1` = Execute
+* `7` (4+2+1) = Full permissions.
+
+### SUID (Set User ID) Bit
+Applying a `4` to the beginning of the octal code (e.g., `chmod 4755 binary`) sets the SUID bit. This tells Linux to run the file with the permissions of the file owner (usually root).
